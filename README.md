@@ -16,3 +16,8 @@
 
 - Sơ đồ event loop - https://i.imgur.com/FOsFGoY.png
 - Lệnh `process.exit` giúp cho thoát khỏi event loop
+
+### 29. Understanding Requests
+
+- Một số field chủ yếu cần quan tâm đối với param `req` là `url, method, headers,...`
+  - `url` trả về địa chỉ tương đối của client request lên server
