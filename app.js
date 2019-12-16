@@ -1,22 +1,38 @@
 const http = require('http');
 
 const server = http.createServer(function(req, res) {
-  console.log(req.url, req.method, req.headers);
-  // process.exit(); // Lệnh này làm cho thoát khỏi event loop nên sẽ stop server luôn
+  const url = req.url; // Url chỉ trả về địa chỉ tương đối
+
+  if(url === '/') {
+    res.setHeader('Content-type', 'text/html'); // Set để client nhận biết đây là tài liệu html
+    res.write(`
+      <html>
+        <head>
+          <title>Enter message</title>
+        </head>
+        <body>
+          <form action="/message" method="GET">
+            <input type="text" name="messageContent" />
+            <button type="submit">Send</button>
+          </form>
+        </body>
+      </html>
+    `)
+    return res.end();
+  }
 
   res.setHeader('Content-type', 'text/html'); // Set để client nhận biết đây là tài liệu html
   res.write(`
     <html>
       <head>
-        <title>cc</title>
+        <title>Other page</title>
       </head>
       <body>
-        Body
+        Body tag
       </body>
     </html>
   `)
-  res.end();
-
+  return res.end();
 });
 
 server.listen(3000);
