@@ -40,3 +40,11 @@
 - Sơ đồ giải thích về luồng đi của stream data, buffer là gì,... - https://i.imgur.com/mTnFPcC.png 
   - Đại khái là data được gửi từ client lên theo nguyên tắc là stream, gửi tới đâu nhận tới đó, dẫn đến data ta sẽ nhận cũng ngắt quảng bởi nhiều phần khác nhau, các phần data đó ta gọi là `chunk`
 - Video hướng dẫn cách có thể lấy được data từ phương thức `POST` gửi qua form làm cách nào để nhận và sử dụng
+
+### 35. Understanding Event Driven Code Execution
+
+### 36. Blocking and Non-Blocking Code 
+
+- Đối với việc tạo file thì sử dụng `writeFileSync` để code bên dưới tiếp tục chạy trong khi file vẫn tiếp tục được ghi, nếu chỉ là `writeFile` thì khi ghi 1 data quá lớn nó sẽ chờ ghi xong mới thực hiện lệnh bên dưới => blocking even loop
+- Vì lợi thế của Nodejs là bất đồng bộ, tức là mình chỉ nó đang làm này nhảy qua làm kia khi rãnh, không giữ lại luồng xử lý lâu nên tốc độ sẽ tốt hơn php tuần tự dừng đợi xong hết mới trả về
+

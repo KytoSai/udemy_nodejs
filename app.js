@@ -31,16 +31,16 @@ const server = http.createServer(function(req, res) {
       body.push(chunk);
     });
 
-    req.on('end', function() {
+    return req.on('end', function() {
       const parsedBody = Buffer.concat(body).toString();
-      // console.log(parsedBody); // parsedBody sẽ trả về theo dạng `messageContent=noi_dung_ban_nhap`
       const message = parsedBody.split('=')[1];
-      fs.writeFileSync('message.txt', message);
+
+      fs.writeFile('message.txt', message, (err) => {
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        return res.end();
+      }); 
     });
-    
-    res.statusCode = 302;
-    res.setHeader('Location', '/');
-    return res.end();
   }
 
   res.setHeader('Content-type', 'text/html'); // Set để client nhận biết đây là tài liệu html
