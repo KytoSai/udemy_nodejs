@@ -21,3 +21,7 @@
 
 - Một số field chủ yếu cần quan tâm đối với param `req` là `url, method, headers,...`
   - `url` trả về địa chỉ tương đối của client request lên server
+
+### 30. Sending Responses
+
+- Học cách hiểu quả trnhf send 1 response có html từ server tới client, giúp sau này học expressjs sẽ hiểu thực tế expressjs sẽ xử lý thế nào
