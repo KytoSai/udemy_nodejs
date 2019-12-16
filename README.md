@@ -48,3 +48,6 @@
 - Đối với việc tạo file thì sử dụng `writeFileSync` để code bên dưới tiếp tục chạy trong khi file vẫn tiếp tục được ghi, nếu chỉ là `writeFile` thì khi ghi 1 data quá lớn nó sẽ chờ ghi xong mới thực hiện lệnh bên dưới => blocking even loop
 - Vì lợi thế của Nodejs là bất đồng bộ, tức là mình chỉ nó đang làm này nhảy qua làm kia khi rãnh, không giữ lại luồng xử lý lâu nên tốc độ sẽ tốt hơn php tuần tự dừng đợi xong hết mới trả về
 
+### 37. Node.js - Looking Behind the Scenes 
+
+- https://i.imgur.com/D1qXsoi.png
