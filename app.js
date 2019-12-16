@@ -26,7 +26,18 @@ const server = http.createServer(function(req, res) {
 
   // Check router message page
   if(url === '/message' && method === 'POST') {
-    fs.writeFileSync('message.txt','DUMMY');
+    const body = [];
+    req.on('data', function(chunk) {
+      body.push(chunk);
+    });
+
+    req.on('end', function() {
+      const parsedBody = Buffer.concat(body).toString();
+      // console.log(parsedBody); // parsedBody sẽ trả về theo dạng `messageContent=noi_dung_ban_nhap`
+      const message = parsedBody.split('=')[1];
+      fs.writeFileSync('message.txt', message);
+    });
+    
     res.statusCode = 302;
     res.setHeader('Location', '/');
     return res.end();
