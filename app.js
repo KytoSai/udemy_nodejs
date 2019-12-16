@@ -1,8 +1,11 @@
 const http = require('http');
+const fs = require('fs');
 
 const server = http.createServer(function(req, res) {
   const url = req.url; // Url chỉ trả về địa chỉ tương đối
+  const method = req.method;
 
+  // Check router home page
   if(url === '/') {
     res.setHeader('Content-type', 'text/html'); // Set để client nhận biết đây là tài liệu html
     res.write(`
@@ -11,13 +14,21 @@ const server = http.createServer(function(req, res) {
           <title>Enter message</title>
         </head>
         <body>
-          <form action="/message" method="GET">
+          <form action="/message" method="POST">
             <input type="text" name="messageContent" />
             <button type="submit">Send</button>
           </form>
         </body>
       </html>
     `)
+    return res.end();
+  }
+
+  // Check router message page
+  if(url === '/message' && method === 'POST') {
+    fs.writeFileSync('message.txt','DUMMY');
+    res.statusCode = 302;
+    res.setHeader('Location', '/');
     return res.end();
   }
 

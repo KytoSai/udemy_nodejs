@@ -24,8 +24,13 @@
 
 ### 30. Sending Responses
 
-- Học cách hiểu quả trnhf send 1 response có html từ server tới client, giúp sau này học expressjs sẽ hiểu thực tế expressjs sẽ xử lý thế nào
+- Học cách hiểu quả trình send 1 response có html từ server tới client, giúp sau này học expressjs sẽ hiểu thực tế expressjs sẽ xử lý thế nào ở bên trong core
 
 ### 32. Routing Requests
 
 - Hướng dẫn cách tạo router cho server nodejs, đơn giản là chỉ cần if else dựa vào url của client khách truy cập bằng biến `req.url` rồi trả về content như mình mong muốn client nhận
+
+### 33. Redirecting Requests
+
+- Hướng dẫn vào 1 router và reditect đi router khác bằng cách thay đổi header trả về client bằng hàm `res.setHeader('Location', '/router-muon-den');`
+- Cách tạo ra 1 file message.txt ghi data vào đó
