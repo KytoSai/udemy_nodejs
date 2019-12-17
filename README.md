@@ -110,3 +110,35 @@
     }
   ```
   - Lưu ý là lúc run debug thì nó tự run `app.js` dùm mình nên đừng run trước bằng terminal nào cả nếu không sẽ bị đụng port. Có thể do mình đang dùng loại debug `Lauch Program` nó sẽ run bằng nodejs dùm mình cái app thay vì dùng bên thứ 3 (VD: conemu run app rồi debug bằng vscode chẳng hạn thì không được,...)
+
+### 51. Using the Debugger
+
+### 52. Restarting the Debugger Automatically After Editing our App
+
+- Tài liệu debug nodejs với vscode - https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+
+- Để có thể khi code sửa thì debugger có thể auto restart thì ta phải tìm cách config cho nó sử dụng nodemon để run app, ta mở `lauch.json` lên và sửa ở config trên bổ sung thêm
+  ```json
+    {
+      // Use IntelliSense to learn about possible attributes.
+      // Hover to view descriptions of existing attributes.
+      // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Launch Program",
+          "program": "${workspaceFolder}/app.js",
+          "skipFiles": [
+            "<node_internals>/**"
+          ],
+          "restart": true,
+          "runtimeExecutable": "nodemon", // Config cho sử dụng nodemon để run
+          "console": "integratedTerminal" // Config cho sử dụng bộ cửa sổ console nào để chạy lệnh, default sẽ là `internalConsole`
+        }
+      ]
+    }
+  ```
+  - Lưu ý:
+    - Cần cài nodemon thành global package trong máy để có thể run lệnh trong debugger được
