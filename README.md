@@ -55,3 +55,7 @@
 ### 38. Using the Node Modules System
 
 - Thử nghiệm các kiểu export module kiểu cũ (không phải es6 là `export default ...`)
+
+### 39. Wrap up
+
+- Tổng kết - https://i.imgur.com/nkm9amo.png 
