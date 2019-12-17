@@ -2,7 +2,7 @@
 
 # COURSE
 
-## 03 - Understanding the Basics
+## Section 3 - Understanding the Basics
 
 - Nodejs bao gồm nhiều modules nhưng có các core modules chính là `http, https, fs, path, os`
   - Vì linux / windows có vấn đề xử lý path khác nhau nên có thể dùng module os để hỗ trợ xử lý vấn đề này
@@ -59,3 +59,22 @@
 ### 39. Wrap up
 
 - Tổng kết - https://i.imgur.com/nkm9amo.png 
+
+## Section 4 - Improved Development Workflow and Debugging
+
+### 42. Understanding NPM Scripts
+
+### 43. Installing 3rd Party Packages
+
+### 45. Using Nodemon for Autorestarts
+
+- Sử dụng package nodemon để khi code tự rerun lại entry point (tức file chính của project) - https://github.com/remy/nodemon 
+  - Setup key cho `package.json` để run nodemon 
+    ```json 
+      "scripts": {
+        "dev": "nodemon app.js"
+      },
+    ```
+  - Khi run lệnh chạy rồi gõ `rs` rồi gõ `enter` sẽ restart được nodemon đang chạy
+
+- Lý do khi gõ trực tiếp `nodemon app.js` không chạy mà phải dùng qua script của package.json là vì nodemon không được cài global, dẫn đến lệnh gõ lúc đó là lệnh global nên không thực thi
