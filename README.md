@@ -78,3 +78,35 @@
   - Khi run lệnh chạy rồi gõ `rs` rồi gõ `enter` sẽ restart được nodemon đang chạy
 
 - Lý do khi gõ trực tiếp `nodemon app.js` không chạy mà phải dùng qua script của package.json là vì nodemon không được cài global, dẫn đến lệnh gõ lúc đó là lệnh global nên không thực thi
+
+### 47. Understanding different Error Types
+
+- Có 3 loại lỗi gặp phải là
+  - Syntax error
+  - Runtime error
+  - Logical error
+
+### 50. Logical Errors
+
+- Học cách debug với vscode
+- Đầu tiên mở tab `debug` bên cột trái lên, sau đó chọn tạo config ở `lauch.json`, sau đó tạo debug với config là `Launch Program` - https://i.imgur.com/NRuT8Uj.png 
+  ```json
+    {
+      // Use IntelliSense to learn about possible attributes.
+      // Hover to view descriptions of existing attributes.
+      // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Launch Program",
+          "program": "${workspaceFolder}/app.js",
+          "skipFiles": [
+            "<node_internals>/**"
+          ]
+        }
+      ]
+    }
+  ```
+  - Lưu ý là lúc run debug thì nó tự run `app.js` dùm mình nên đừng run trước bằng terminal nào cả nếu không sẽ bị đụng port. Có thể do mình đang dùng loại debug `Lauch Program` nó sẽ run bằng nodejs dùm mình cái app thay vì dùng bên thứ 3 (VD: conemu run app rồi debug bằng vscode chẳng hạn thì không được,...)
