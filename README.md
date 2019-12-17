@@ -51,3 +51,7 @@
 ### 37. Node.js - Looking Behind the Scenes 
 
 - https://i.imgur.com/D1qXsoi.png
+
+### 38. Using the Node Modules System
+
+- Thử nghiệm các kiểu export module kiểu cũ (không phải es6 là `export default ...`)
