@@ -41,3 +41,14 @@
     ```
   - Demo log: https://i.imgur.com/njAYX7h.png
   - => không hiểu tại sao ??????
+
+### 64. Parsing Incoming Requests 
+
+- Video hướng dẫn cách gửi thông tin từ page `/add-product` tới page `/product` bằng method POST
+- Để lấy được thông tin body của method post phải sử dụng thư viện `bodyParser`
+  - Thư viện này ở thời điểm hiện tại để sử dụng function `bodyParser.urlencoded` phải truyền thêm option vào `{ extended: true }`
+  - Issue: https://stackoverflow.com/questions/25471856/express-throws-error-as-body-parser-deprecated-undefined-extended 
+  ```javascript
+    app.use(bodyParser.urlencoded({ extended: true }));
+  ```
+    - Việc set true/false cho `extended` ở đây đơn giản là quyết định sử dụng loại parse dữ liệu của thư viện nào thôi - https://www.npmjs.com/package/body-parser#extended 
