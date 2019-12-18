@@ -85,3 +85,12 @@
     - Cách 1 là ở mỗi cấu hình path router ta thêm prefix `/admin/...` ở trước, nhưng cách này thủ công và sửa sml
     - Cách 2 là ở `app.use(adminRoutes)` ta thêm cấu hình thành `app.use('/admin',adminRoutes)`
   
+### 69. Creating HTML Pages
+### 70. Serving HTML Pages
+
+- Hướng dẫn tạo page html gửi response về cho client
+- Tạo thư mục `views` chứa các file html để gửi client
+  - Ở config router sẽ sử dụng hàm `res.sendFile('../views/shop.html');` để gửi file về cho client, tuy nhiên với đường path trong ví dụ vừa rồi sẽ không chạy mặc dù theo nguyên tắc thì nó dẫn ra đúng vị trí của file shop.html
+  - Để giải quyết việc này ta dùng thư viện `path` với hàm `res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));` để xử lý
+  - Kết hợp `__dirname` để lấy đường dẫn tới thư mục hiện hành của file hiện tại
+
