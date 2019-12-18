@@ -40,7 +40,8 @@
       app.listen(3000);
     ```
   - Demo log: https://i.imgur.com/njAYX7h.png
-  - => không hiểu tại sao ??????
+  - => không hiểu tại sao ?????? 
+    - => Sau này sử dụng các phương thứ `post`, `get`,.. thay cho `use` thì sẽ hết bị
 
 ### 64. Parsing Incoming Requests 
 
@@ -52,3 +53,24 @@
     app.use(bodyParser.urlencoded({ extended: true }));
   ```
     - Việc set true/false cho `extended` ở đây đơn giản là quyết định sử dụng loại parse dữ liệu của thư viện nào thôi - https://www.npmjs.com/package/body-parser#extended 
+
+### 65. Limiting Middleware Execution to POST Requests
+
+- Video giới thiệu về `post`, `get`,...
+
+### 66. Using Express Router
+
+- Video hướng dẫn sử dụng `express.Router()` , tách routes ra quản lý ở các file riêng
+- Ở các video trước chúng ta không sử dụng `get`, `post` mà chỉ sử dụng `use` , việc này rất nguy hiểm vì nó sẽ làm cho thứ tự khi ta săp xếp các router rất quan trọng, xếp thứ tự sai là khỏi vào được router mong muốn luôn
+  - Ở bài này có thể thử bằng cách 
+    - sửa ở `shop.js` về `router.use` rồi vào url `http://localhost:3000/add-product` là chỉ thấy giao diện của `hello expressjs`
+    - Đổi thứ tự router trong app.js thành
+      ```javascript
+        app.use(shopRoutes);
+        app.use(adminRoutes);
+      ```
+    - Demo: https://i.imgur.com/15RujSU.png
+- Các phương thức `get`, `post`, `put`,... giúp ta detect được router chính xác sẽ thực hiện middleware khi client truy cập vào
+
+
+
