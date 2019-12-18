@@ -19,3 +19,25 @@
 ### 62. Express.js - Looking Behind the Scenes 
 
 - Có thể tìm hiểu sâu hơn về lệnh `send` của expressjs hoạt động thế nào - https://github.com/expressjs/express/blob/master/lib/response.js 
+- Viết rút gọn app loại loại bỏ các module `http` , sửa lại cách start server đơn giản hơn với expressjs
+
+### 63. Handling Different Routes 
+
+- Video hướng dẫn cách tạo router với express
+- Có 1 điểm khó hiểu là ở đầu video chỉ define 1 router `/` và dặt 1 `console.log('In another middleware');` thì khi truy cập trang `http://localhost:3000/` thì lại thấy log ra 2 lần
+  - Demo code: https://i.imgur.com/Xw5rrT7.png 
+    ```javascript
+      const express = require('express');
+      const app = express();
+
+      app.use('/', (req, res, next) => {
+        console.log('In another middleware');
+        res.send(`
+          <h1>Hello expressjs</h1>
+        `)
+      });
+
+      app.listen(3000);
+    ```
+  - Demo log: https://i.imgur.com/njAYX7h.png
+  - => không hiểu tại sao ??????
