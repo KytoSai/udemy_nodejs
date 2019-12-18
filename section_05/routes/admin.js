@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/add-product', (req, res, next) => {
   console.log('==== [Middleware] /add-product ====');
   res.send(`
-    <form action="/product" method="POST">
+    <form action="/admin/product" method="POST">
       <input type="text" name="title"/>
       <button type="submit">Add product</button>
     </form>  

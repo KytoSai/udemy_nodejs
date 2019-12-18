@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-app.use(adminRoutes);
+app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
 // CREATE PAGE 404

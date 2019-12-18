@@ -77,3 +77,11 @@
 - Theo nguyên tắc các middleware sẽ run từ trên xuống dưới, vì vậy để tạo 1 page 404 , ta sẽ tạo 1 router dưới cùng hứng các requets mà không match với bất cứ router nào đã dùng trước đó.
   - Sử dụng `app.use` để tạo page này
   - Nhớ set status 404 cho page này
+
+### 68. Filtering Paths
+
+- Hướng dẫn cách tạo prefix router cho config router có sẵn
+  - VD: ở bài trước có các router `/add-product`, `/product` ta muốn thêm prefix router là `/admin` ở trước 2 router đó thành `/admin/add-product`, `/admin/product` Ta sẽ có 2 cách
+    - Cách 1 là ở mỗi cấu hình path router ta thêm prefix `/admin/...` ở trước, nhưng cách này thủ công và sửa sml
+    - Cách 2 là ở `app.use(adminRoutes)` ta thêm cấu hình thành `app.use('/admin',adminRoutes)`
+  
