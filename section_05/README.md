@@ -94,3 +94,10 @@
   - Để giải quyết việc này ta dùng thư viện `path` với hàm `res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));` để xử lý
   - Kết hợp `__dirname` để lấy đường dẫn tới thư mục hiện hành của file hiện tại
 
+### 72. Using a Helper Function for Navigation
+
+- Video hướng dẫn cách tạo các `util`, cụ thể ở đây là path.js để lấy đường dẫn từ thư mục root của project để tiện sử dụng import các file module vào cho chính xác
+  - Sau đó sẽ dùng util `path.js` này để replace vào các file router có sendFile html thành đường path chuẩn hơn
+
+- `process.mainModule.filename` sẽ giúp ta lấy được file thực thi chính của project. Ở bài này thì là đường dẫn tới file `app.js` 
+  - Demo: https://i.imgur.com/dlHmuHN.png 
