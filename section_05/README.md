@@ -72,5 +72,8 @@
     - Demo: https://i.imgur.com/15RujSU.png
 - Các phương thức `get`, `post`, `put`,... giúp ta detect được router chính xác sẽ thực hiện middleware khi client truy cập vào
 
+### 67. Adding a 404 Error Page
 
-
+- Theo nguyên tắc các middleware sẽ run từ trên xuống dưới, vì vậy để tạo 1 page 404 , ta sẽ tạo 1 router dưới cùng hứng các requets mà không match với bất cứ router nào đã dùng trước đó.
+  - Sử dụng `app.use` để tạo page này
+  - Nhớ set status 404 cho page này

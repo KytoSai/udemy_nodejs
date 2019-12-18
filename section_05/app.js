@@ -11,7 +11,16 @@ app.use(bodyParser.urlencoded({
 
 
 app.use(adminRoutes);
-
 app.use(shopRoutes);
+
+// CREATE PAGE 404
+app.use('/',(req, res, next) => {
+  res
+    .status(404) // quan trọng cần phải set status 404 cho page này
+    .send(`
+      <h1>Page not found</h1>
+    `)
+});
+
 
 app.listen(3000);
