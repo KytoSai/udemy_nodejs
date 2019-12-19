@@ -103,3 +103,15 @@
   - Demo: https://i.imgur.com/dlHmuHN.png 
 
 ### 73. Styling our Pages
+
+### 74. Serving Files Statically
+
+- Video hướng dẫn cách public 1 folder cho phép truy cập từ url. Ở đây là folder name là `/public`
+- Ta sử dụng lệnh
+  ```javascript
+    app.use(express.static(path.join(__dirname, 'public')));
+  ```
+  - Lưu ý là ở đây khi public folder `/public` ra ngoài thì url sẽ không tính folder này vào url.
+  - VD: trong thư mục public có file `./public/css/main.css`
+    - Khi import css vào file html theo dạng `<link rel="stylesheet" href="/public/css/main.css" />` => fail vỉ không tính `/public` vào url
+    - Sửa lại thành `<link rel="stylesheet" href="/css/main.css" />` 
