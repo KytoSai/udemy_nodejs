@@ -115,3 +115,5 @@
   - VD: trong thư mục public có file `./public/css/main.css`
     - Khi import css vào file html theo dạng `<link rel="stylesheet" href="/public/css/main.css" />` => fail vỉ không tính `/public` vào url
     - Sửa lại thành `<link rel="stylesheet" href="/css/main.css" />` 
+
+
