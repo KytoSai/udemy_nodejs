@@ -41,3 +41,24 @@
     _db = client.db();
   ```
 
+### 182. Using the Database Connection 
+### 183. Creating Products
+
+- Video hướng dẫn cách insert 1 item product vào collection `products`
+  - Khi insert thành công log ra sẽ ra 1 mớ nhưng chủ yếu quan tâm phần cuối của log - https://i.imgur.com/uKOdS1b.png
+  ```javascript
+    ops: [
+      Product {
+        title: ' Title ',
+        price: '1',
+        description: '                   \r\n' +
+          '                    Officia consectetur tempor laborum aliquip labore ad incididunt in qui labore.\r\n' +
+          '                  \r\n' +
+          '                ',
+        imageUrl: ' https://cdn.gsmarena.com/imgroot/news/19/06/xiaomi-cc-series-what-it-means/-727/gsmarena_001.jpg ',
+        _id: 5dfe5bf4bb37582d10a38819
+      }
+    ],
+    insertedCount: 1,
+    insertedId: 5dfe5bf4bb37582d10a38819
+  ```
