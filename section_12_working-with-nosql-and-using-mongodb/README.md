@@ -62,3 +62,8 @@
     insertedCount: 1,
     insertedId: 5dfe5bf4bb37582d10a38819
   ```
+
+### 184. Understanding the MongoDB Compass
+
+- Sử dụng app `compass` để quản lý mongodb 
+  - Download - https://www.mongodb.com/download-center/compass 
