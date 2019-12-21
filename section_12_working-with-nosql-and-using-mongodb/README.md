@@ -67,3 +67,15 @@
 
 - Sử dụng app `compass` để quản lý mongodb 
   - Download - https://www.mongodb.com/download-center/compass 
+
+### 185. Fetching All Products
+
+- Để lấy toàn bộ data của 1 collection ta chỉ cần dùng lệnh `find()`
+  ```javascript
+    db
+      .collection('products')
+      .find() // Lấy cụ thể thì truyền 1 object với các field tương tứng vào `find`
+      .toArray() // Phải có để lấy được data trả về
+  ```
+  - Lưu ý nếu ta chỉ dừng ở find() thì sẽ không có data để sử dụng vì `A cursor to the documents that match the query criteria. When the find() method “returns documents,” the method is actually returning a cursor to the documents.`
+    - DOC: https://docs.mongodb.com/manual/reference/method/db.collection.find/index.html#definition
