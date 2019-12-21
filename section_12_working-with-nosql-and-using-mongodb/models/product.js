@@ -1,4 +1,5 @@
 const getDb = require('../util/database').getDb;
+const mongodb = require('mongodb');
 
 class Product {
   constructor(title, price, description, imageUrl) {
@@ -30,7 +31,24 @@ class Product {
       .toArray() // ! Bỏ cái này thì bị lỗi, why ???
       .then(products => {
         console.log(products);
-        return products;
+        return products; // Để ở ngoài có thể nhận data bằng cách `.then()` thì ở đây ta return data cần gửi ra ngoài là xong
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  static findById(prodId) {
+    const db = getDb();
+    return db
+      .collection('products')
+      .find({
+        _id: new mongodb.ObjectId(prodId)
+      })
+      .next()
+      .then(product => {
+        console.log(product);
+        return product;
       })
       .catch(err => {
         console.log(err);

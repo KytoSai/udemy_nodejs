@@ -79,3 +79,14 @@
   ```
   - Lưu ý nếu ta chỉ dừng ở find() thì sẽ không có data để sử dụng vì `A cursor to the documents that match the query criteria. When the find() method “returns documents,” the method is actually returning a cursor to the documents.`
     - DOC: https://docs.mongodb.com/manual/reference/method/db.collection.find/index.html#definition
+  - Để xử lý tiếp một đối tượng là `cursor` đọc doc - https://docs.mongodb.com/manual/reference/method/js-cursor/ 
+
+### 186. Fetching a Single Product
+
+- Video hướng dẫn cách lấy thông tin 1 product
+- Lưu ý là ở các video trước ta biết khi insert 1 product vào collection `products` nó sẽ tự thêm field `_id` nhưng cần để ý là giá trị nó lưu không phải string hay number mà 1 dạng `object`, object này là dạng `bson` 
+  ```javascript
+    "_id":{"$oid":"5dfe5bf4bb37582d10a38819"}
+  ```
+  - Demo - https://i.imgur.com/s2dYnKL.png 
+- Để convert id muốn truyền vào về đúng dạng lưu trong db thì ta dùng `new mongodb.ObjectId(productId)`
