@@ -18,12 +18,26 @@
   - Nhảy popup ta chọn phương thức `Connect your application` - https://i.imgur.com/1o1mJv8.png
   - Sau đó sẽ tới bước tiếp theo để lấy mã code kết nối - https://i.imgur.com/C2nFgEl.png
     ```
-    mongodb+srv://user01:<password>@cluster0-1cukr.mongodb.net/test?retryWrites=true&w=majority
+      mongodb+srv://<user01>:<password>@cluster0-1cukr.mongodb.net/<databaseName>?retryWrites=true&w=majority
     ```
     - thay `user01` bằng user muốn kết nối
     - thay `password` bằng password đã setup ở bước 3 cho user01
+    - thay `databaseName` thành database muốn sử dụng
+      - Nếu db này chưa tồn tại nó sẽ khởi tạo tự động
 
 ### 179. Installing the MongoDB Driver 
 
 ### 180. Creating the Database Connection 
+
+### 181. Finishing the Database Connection
+
+- Ở chuỗi kết nối mongodb cung cấp nhớ thay đổi databaseName để có thể tạo databaseName ưng ý, ở hướng dẫn sẽ là `shop`
+  - Nếu db chưa tồn tại sẽ được tự động khởi tạo
+  ```javascript
+    MongoClient.connect('mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/shop?retryWrites=true&w=majority')
+  ```
+- Video hướng dẫn cách lưu lại kết nối tới db để tái sử dụng lại
+  ```
+    _db = client.db();
+  ```
 
