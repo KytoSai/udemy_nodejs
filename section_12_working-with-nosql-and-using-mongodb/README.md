@@ -62,6 +62,7 @@
     insertedCount: 1,
     insertedId: 5dfe5bf4bb37582d10a38819
   ```
+- Các item trong products gọi là document
 
 ### 184. Understanding the MongoDB Compass
 
@@ -111,3 +112,8 @@
       ```
       - Field `a: 1` sẽ được bổ sung thêm vào product với _id (trước đó có `title, imageUrl, price, description` thì giờ sẽ có thêm `a`)
       - Demo: https://i.imgur.com/kvfav5K.png 
+      
+### 191. Deleting Products
+
+- Để remove 1 item document trong collection sử dụng hàm `deleteOne`
+  - DOC: https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/index.html#db-collection-deleteone 

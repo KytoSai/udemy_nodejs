@@ -10,33 +10,19 @@
         <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
             <div class="form-control">
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" value="<% if (editing) { %><%= product.title %><% } else { %> Title <% } %>">
+                <input type="text" name="title" id="title" value="<% if (editing) { %><%= product.title %><% } %>">
             </div>
             <div class="form-control">
                 <label for="imageUrl">Image URL</label>
-                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } else { %> https://cdn.gsmarena.com/imgroot/news/19/06/xiaomi-cc-series-what-it-means/-727/gsmarena_001.jpg <% } %>">
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>">
             </div>
             <div class="form-control">
                 <label for="price">Price</label>
-                <input type="number" name="price" id="price" step="0.01" 
-                  value="
-                    <% if (editing) { %>
-                      <%= product.price %>
-                    <% } else { %> 
-                      1.0
-                    <% } %>
-                  "
-                >
+                <input type="number" name="price" id="price" step="0.01" value="<% if (editing) { %><%= product.price %><% } %>">
             </div>
             <div class="form-control">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" rows="5">
-                  <% if (editing) { %>
-                    <%= product.description %>
-                  <% } else { %> 
-                    Officia consectetur tempor laborum aliquip labore ad incididunt in qui labore.
-                  <% } %>
-                </textarea>
+                <textarea name="description" id="description" rows="5"><% if (editing) { %><%= product.description %><% } %></textarea>
             </div>
             <% if (editing) { %>
                 <input type="hidden" value="<%= product._id %>" name="productId">
