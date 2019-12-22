@@ -1,7 +1,7 @@
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
-let _db = null; // _ private variable
+let _db;
 
 const mongoConnect = (callback) => {
   MongoClient
@@ -18,10 +18,9 @@ const mongoConnect = (callback) => {
 };
 
 const getDb = () => {
-  if(_db) {
+  if (_db) {
     return _db;
   }
-
   throw 'No database found!';
 };
 

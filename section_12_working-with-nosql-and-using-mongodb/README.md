@@ -90,3 +90,23 @@
   ```
   - Demo - https://i.imgur.com/s2dYnKL.png 
 - Để convert id muốn truyền vào về đúng dạng lưu trong db thì ta dùng `new mongodb.ObjectId(productId)`
+
+### 187. Making the "Edit" & "Delete" Buttons Work Again
+### 188. Working on the Product Model to Edit our Produc
+### 189. Finishing the "Update Product" Code
+
+- Update 1 item trong collection sử dụng hàm `updateOne`
+  - DOC: https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/index.html#db-collection-updateone 
+  - Ở đây ta sử dụng `{ $set: data }` để update dữ liệu của product
+    - Nếu data là 1 field mới thì dữ liệu của sản phẩm đó sẽ được bổ sung thêm field mới này chứ không phải xóa hết đống field cũ
+    - VD:
+      ```javascript
+        .updateOne(
+          { _id: new mongodb.ObjectId(this._id) }, // Tìm đối tượng
+          { $set: {
+            a: 1
+          } } // Data cần update
+        );
+      ```
+      - Field `a: 1` sẽ được bổ sung thêm vào product với _id (trước đó có `title, imageUrl, price, description` thì giờ sẽ có thêm `a`)
+      - Demo: https://i.imgur.com/kvfav5K.png 

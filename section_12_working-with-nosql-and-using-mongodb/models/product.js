@@ -1,19 +1,33 @@
-const getDb = require('../util/database').getDb;
 const mongodb = require('mongodb');
+const getDb = require('../util/database').getDb;
 
 class Product {
-  constructor(title, price, description, imageUrl) {
+  constructor(title, price, description, imageUrl, id) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.imageUrl = imageUrl;
+    this._id = id;
   }
 
   save() {
     const db = getDb();
-    return db
-      .collection('products')
-      .insertOne(this)
+    let dbOp;
+    if (this._id) { 
+      // UPDATE PRODUCT
+      dbOp = db
+        .collection('products')
+        .updateOne(
+          { _id: new mongodb.ObjectId(this._id) }, // Tìm đối tượng
+          { $set: this } // Data cần update
+        );
+    } else {
+      dbOp = db
+        .collection('products')
+        .insertOne(this);
+    }
+
+    return dbOp
       .then(result => {
         console.log(result);
       })
@@ -24,14 +38,13 @@ class Product {
 
   static fetchAll() {
     const db = getDb();
-
     return db
       .collection('products')
       .find()
-      .toArray() // ! Bỏ cái này thì bị lỗi, why ???
+      .toArray()
       .then(products => {
         console.log(products);
-        return products; // Để ở ngoài có thể nhận data bằng cách `.then()` thì ở đây ta return data cần gửi ra ngoài là xong
+        return products;
       })
       .catch(err => {
         console.log(err);
@@ -42,9 +55,7 @@ class Product {
     const db = getDb();
     return db
       .collection('products')
-      .find({
-        _id: new mongodb.ObjectId(prodId)
-      })
+      .find({ _id: new mongodb.ObjectId(prodId) })
       .next()
       .then(product => {
         console.log(product);
@@ -54,6 +65,6 @@ class Product {
         console.log(err);
       });
   }
-};
+}
 
 module.exports = Product;
