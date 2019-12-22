@@ -145,3 +145,6 @@
 
 - Khi lưu thành công thông tin cart vào collection `users` sẽ có dạng như sau - https://i.imgur.com/KV7OFBy.png
 - Chúng ta sẽ không lưu toàn bộ thông của 1 sản phẩm vào trong cart mà ta sẽ chỉ lưu productId và quantity vào cart của user thôi, nếu không lưu tất thông tin producct  mỗi lần sửa thông tin product ta sẽ tìm tất cả các collection có thông tin này sửa thấy mẹ luôn
+
+### 197. Storing Multiple Products in the Cart
+
