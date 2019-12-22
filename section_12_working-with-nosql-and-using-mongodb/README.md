@@ -127,3 +127,11 @@
 
 - Khởi tạo collection `users` trong db của mình để có dữ liệu user code
   - Chọn mục này cho dễ nhập thông tin mới - https://i.imgur.com/L0CZ1sw.png
+
+### 194. Storing the User in our Database
+
+- Vấn đề đặt ra là, giờ muốn lưu thông tin sản phẩm nhưng có reference của thông tin user đã lưu sản phẩm phải làm thao ??? Video sẽ hướng dẫn:
+  - Cách lưu lại thông tin user để dùng lại ở các nơi khác. Gán `req.user = user` ở app.js để làm việc này
+  - Cấu hình lại product model để lưu thêm userId 
+  - Sau khi insert được tham chiếu của userId vào product ta sẽ có demo như sau - https://i.imgur.com/QruPWwk.png 
+    - Chỉ khó hiểu là `userId` khi insert vào document product thì hoàn toàn không có conver bằng hàm `new mongodb.ObjectId(userId)` nhưng khi lưu thì nó lại lưu đúng định dạng BSON của mongodb ???

@@ -21,12 +21,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
   User.findById('5dff18fdd933de4818ade30f')
     .then(user => {
-      // ! Chưa hiểu lắm dòng này ?? tại sao lại cần gán lại vào req.user ? Có phải gán lại vầy thì các chỗ middleware (controller, router,..) tiếp theo có thể lôi ra dạn `req.user` để lấy data không ?
+      // ! Gán lại user vào `req.user` để có thể lôi ra sử dụng ở các middleware khác nhau (controller, router,...)
       req.user = user; 
       next();
     })
     .catch(err => console.log(err));
-  next();
 });
 
 app.use('/admin', adminRoutes);

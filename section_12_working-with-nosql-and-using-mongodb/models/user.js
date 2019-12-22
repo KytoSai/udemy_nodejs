@@ -25,13 +25,13 @@ class User {
   static findById(userId) {
     const db = getDb();
     return db
-      .collection('user')
+      .collection('users')
       .find({
         _id: new ObjectId(userId)
       })
       .next()
       .then(user => {
-        console.log(user);
+        console.log('[user]',user);
         return user;
       })
       .catch(err => {
