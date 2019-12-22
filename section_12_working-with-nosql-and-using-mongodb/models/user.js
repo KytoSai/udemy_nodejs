@@ -135,6 +135,29 @@ class User {
         console.log(err);
       })
   }
+
+  addOrder() {
+    const self = this;
+    const db = getDb();
+
+    return db
+      .collection('orders')
+      .insertOne(self.cart)
+      .then(result => {
+        self.cart = { items: [] }; // Lưu giỏ hàng rỗng vào class user hiện tại
+        
+        // Xóa giỏ hàng trong collection 
+        return db
+          .collection('users')
+          .updateOne({
+            _id: new ObjectId(self._id)
+          },{
+            $set: {
+              cart: { items: [] }
+            }
+          })
+      });
+  }// addOrder()
 }
 
 module.exports = User;
