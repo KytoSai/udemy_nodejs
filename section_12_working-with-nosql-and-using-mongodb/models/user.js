@@ -111,6 +111,30 @@ class User {
         console.log(err);
       })
   }
+
+  deleteItemFormCart(productId) {
+    const self = this;
+    const updateCartItems = self.cart.items.filter((item) => {
+      return item.productId.toString() !== productId.toString();
+    });
+
+    const db = getDb();
+    return db
+      .collection('users')
+      .updateOne({
+        _id: new ObjectId(self._id),
+      },{
+        $set: {
+          cart: {
+            items: updateCartItems
+          },
+        },
+      })
+      .then()
+      .catch(err => {
+        console.log(err);
+      })
+  }
 }
 
 module.exports = User;
