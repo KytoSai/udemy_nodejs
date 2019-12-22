@@ -148,3 +148,7 @@
 
 ### 197. Storing Multiple Products in the Cart
 
+### 198. Displaying the Cart Items (QUAN TRỌNG)
+
+- Video hướng dẫn cách lấy danh sách sản phẩm trong cart từ lưu trữ của document user
+

@@ -7,7 +7,7 @@ class User {
   constructor(username, email, cart, id) {
     this.username = username;
     this.email = email;
-    this.cart = (cart)? cart : { items: [] };
+    this.cart = (cart)? cart : { items: [] }; // Tạo cấu trúc trường hợp rỗng để tránh bug khi user chưa tồn tại giỏ hàng
     this._id = id;
   }
 
@@ -75,6 +75,38 @@ class User {
         },
       })
       .then()
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  getCart() {
+    const db = getDb();
+    const self = this;
+
+    // Lấy tất cả product Id có trong giỏ hàng của user
+    const productIds = self.cart.items.map(i => {
+      return i.productId;
+    });
+
+    return db
+      .collection('products') // Dựa vào collection `products` tìm những sản phẩm có id trong cart của user
+      .find({
+        _id: {
+          $in: productIds
+        }
+      })
+      .toArray()
+      .then(products => {
+        return products.map(p => { // Format lại để trả data
+          return {
+            ...p,
+            quantity: self.cart.items.find(i => { // Vì data product của collection `products` không có thông tin quantity nên cần bổ sung khi trả ra
+              return i.productId.toString() === p._id.toString();
+            }).quantity,
+          };
+        });
+      })
       .catch(err => {
         console.log(err);
       })
