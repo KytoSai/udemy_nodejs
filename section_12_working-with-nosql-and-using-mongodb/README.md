@@ -117,3 +117,8 @@
 
 - Để remove 1 item document trong collection sử dụng hàm `deleteOne`
   - DOC: https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/index.html#db-collection-deleteone 
+
+### 192. Fixing the "Add Product" Functionality
+
+- Khi add product thì lúc đầu id sẽ không có nhưng ta lại dùng `this._id = new mongodb.ObjectId(id)` để lưu lại id truyền từ ngoài vào, khi id không có data nhưng ta cho chạy qua hàm `objectId(id)` thì dẫn tới _id khi được gán sẽ có giá trị khác rỗng, dẫn tới khi add product nó cứ hiểu là update product
+ - Vì vậy cần chekc điều kiện khi gán id truyền vào từ ngoài cho _id để sửa lỗi này
