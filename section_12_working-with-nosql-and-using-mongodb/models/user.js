@@ -136,13 +136,36 @@ class User {
       })
   }
 
-  addOrder() {
+  getOrders() {
     const self = this;
     const db = getDb();
 
-    return db
-      .collection('orders')
-      .insertOne(self.cart)
+    // return db
+    //   .collection('orders')
+      
+  }
+
+  addOrder() {
+    const self = this;
+    const db = getDb();
+    
+    /*
+      Thay vì lấy bằng self.cart thì gọi request để đảm bảo data là mới nhất
+    */
+    return self.getCart()
+      .then(products => {
+        const order = {
+          items: products,
+          user: {
+            _id: new ObjectId(self._id),
+            name: self.name,
+          },
+        };
+
+        return db
+          .collection('orders')
+          .insertOne(order)
+      })
       .then(result => {
         self.cart = { items: [] }; // Lưu giỏ hàng rỗng vào class user hiện tại
         
@@ -156,7 +179,7 @@ class User {
               cart: { items: [] }
             }
           })
-      });
+      })
   }// addOrder()
 }
 
