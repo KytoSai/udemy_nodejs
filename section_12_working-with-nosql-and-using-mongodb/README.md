@@ -135,3 +135,10 @@
   - Cấu hình lại product model để lưu thêm userId 
   - Sau khi insert được tham chiếu của userId vào product ta sẽ có demo như sau - https://i.imgur.com/QruPWwk.png 
     - Chỉ khó hiểu là `userId` khi insert vào document product thì hoàn toàn không có conver bằng hàm `new mongodb.ObjectId(userId)` nhưng khi lưu thì nó lại lưu đúng định dạng BSON của mongodb ???
+
+### 195. Working on Cart Items & Orders
+
+- Video hướng dẫn tạo cart cho user
+  - Vì đang sử dụng mongodb nên ta không cần tạo 1 bảng riêng cho user để chứa thông tin sản phẩm trong cart mà ta lưu thẳng vào trong collection `users` luôn
+
+
