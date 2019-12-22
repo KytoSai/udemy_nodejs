@@ -157,3 +157,22 @@
 ### 201. Adding an Order
 
 ### 202. Adding Relational Order Data
+
+### 203. Getting Orders
+
+- Mongodb hỗ trợ cách viết gọn khi gọi find tới đối tượng cần tìm
+  - VD: 
+    - Bình thường sẽ là
+      ```javascript
+        .find({
+          user: {
+            _id: new ObjectId(self._id)
+          }
+        });   
+      ```
+    - Mongodb có thêm cách là
+      ```javascript
+        .find({
+          'user._id': new ObjectId(self._id)
+        });   
+      ```

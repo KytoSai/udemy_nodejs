@@ -140,9 +140,15 @@ class User {
     const self = this;
     const db = getDb();
 
-    // return db
-    //   .collection('orders')
-      
+    return db
+      .collection('orders')
+      .find({
+        'user._id': new ObjectId(self._id)
+      })
+      .toArray()
+      .then(orders => {
+        return orders
+      });    
   }
 
   addOrder() {
