@@ -94,6 +94,7 @@
 ### 187. Making the "Edit" & "Delete" Buttons Work Again
 ### 188. Working on the Product Model to Edit our Produc
 ### 189. Finishing the "Update Product" Code
+### 190. One Note About Updating Products
 
 - Update 1 item trong collection sử dụng hàm `updateOne`
   - DOC: https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/index.html#db-collection-updateone 
