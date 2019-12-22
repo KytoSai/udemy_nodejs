@@ -176,3 +176,8 @@
           'user._id': new ObjectId(self._id)
         });   
       ```
+
+### 204. Removing Deleted Items From the Cart
+
+- Video hướng dẫn cách khi ta xóa 1 item mà item tồn tại trong cart ta sẽ xử lý thế nào ???
+  - Theo như video thì thườn sẽ có 1 con worker làm nhiệm vụ đi quét dọn để clean theo thời gian các cái vụ này
