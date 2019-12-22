@@ -8,7 +8,7 @@ class Product {
     this.description = description;
     this.imageUrl = imageUrl;
     this._id = id ? new mongodb.ObjectId(id) : null;
-    this.userId = userId;
+    this.userId = userId; // UserId ở đây không chạy qua `new mongodb.ObjectId` nhưng khi lưu vào document product vẫn có data dạng bson
   }
 
   save() {

@@ -22,7 +22,12 @@ app.use((req, res, next) => {
   User.findById('5dff18fdd933de4818ade30f')
     .then(user => {
       // ! Gán lại user vào `req.user` để có thể lôi ra sử dụng ở các middleware khác nhau (controller, router,...)
-      req.user = user; 
+      req.user = new User(
+        user.name,
+        user.email,
+        user.cart,
+        user._id
+      ); 
       next();
     })
     .catch(err => console.log(err));

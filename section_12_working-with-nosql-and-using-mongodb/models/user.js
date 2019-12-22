@@ -4,7 +4,7 @@ const getDb = require('../util/database').getDb;
 const ObjectId = mongodb.ObjectId;
 
 class User {
-  constructor(username, email, cart) {
+  constructor(username, email, cart, id) {
     this.username = username;
     this.email = email;
     this.cart = cart; // { items: [] }
@@ -48,13 +48,13 @@ class User {
 
     const updatedCart = { 
       items: [{
-        ...product,
+        productId: new ObjectId(product._id), // Chỉ lưu mỗi productId là đủ để tham chiếu và sử dụng
         quantity: 1,
       }],
     };
 
     const db = getDb();
-    db
+    return db
       .collection('users')
       .updateOne({
         _id: new ObjectId(this._id),
@@ -62,6 +62,10 @@ class User {
         $set: {
           cart: updatedCart,
         },
+      })
+      .then()
+      .catch(err => {
+        console.log(err);
       })
   }
 }

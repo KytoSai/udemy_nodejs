@@ -141,4 +141,7 @@
 - Video hướng dẫn tạo cart cho user
   - Vì đang sử dụng mongodb nên ta không cần tạo 1 bảng riêng cho user để chứa thông tin sản phẩm trong cart mà ta lưu thẳng vào trong collection `users` luôn
 
+### 196. Adding the "Add to Cart" Functionality
 
+- Khi lưu thành công thông tin cart vào collection `users` sẽ có dạng như sau - https://i.imgur.com/KV7OFBy.png
+- Chúng ta sẽ không lưu toàn bộ thông của 1 sản phẩm vào trong cart mà ta sẽ chỉ lưu productId và quantity vào cart của user thôi, nếu không lưu tất thông tin producct  mỗi lần sửa thông tin product ta sẽ tìm tất cả các collection có thông tin này sửa thấy mẹ luôn
