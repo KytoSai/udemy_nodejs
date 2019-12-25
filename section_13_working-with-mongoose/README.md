@@ -27,3 +27,7 @@
 - Video hướng dẫn cách lấy danh sách sản phẩm để hiển thị
 - Moogose cũng có hàm `Product.find()` nhưng cách hoạt động khác của mongo driver là nó trả về 1 danh sách product chứ không trả về 1 cursor. 
   - Nếu muốn trả về 1 cursor thì thêm `Product.find().cursor()`
+
+### 214. Fetching a Single Product
+
+- Hàm ` Product.findById(prodId)` khác với mongodb driver là phải convert prodId sang ObjectId thì moongose tự convert sang dùm luôn
