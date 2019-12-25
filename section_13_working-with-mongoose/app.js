@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('5baa2528563f16379fc8a610')
+  User.findById('5e036c901c9d4400004848aa')
     .then(user => {
       req.user = new User(user.name, user.email, user.cart, user._id);
       next();
@@ -37,6 +37,7 @@ mongoose
     'mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/shop?retryWrites=true&w=majority'
   )
   .then(result => {
+    console.log('==== [Connected !] ====')
     app.listen(3000);
   })
   .catch(err => {
