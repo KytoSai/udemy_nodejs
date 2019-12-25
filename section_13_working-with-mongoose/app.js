@@ -34,7 +34,7 @@ app.use(errorController.get404);
 
 mongoose
   .connect(
-    'mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/shop?retryWrites=true&w=majority'
+    'mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/udemy_section13_shop?retryWrites=true&w=majority'
   )
   .then(result => {
     console.log('==== [Connected !] ====')
