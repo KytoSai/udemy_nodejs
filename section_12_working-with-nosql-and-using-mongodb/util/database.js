@@ -5,7 +5,9 @@ let _db;
 
 const mongoConnect = (callback) => {
   MongoClient
-    .connect('mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/shop?retryWrites=true&w=majority')
+    .connect('mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/shop?retryWrites=true&w=majority', {
+      useUnifiedTopology: true,
+    })
     .then((client) => {
       console.log('Connected Mongodb')
       _db = client.db(); // Lưu lại connect tới db để tái sử dụng thay vì mỗi lần cần dùng lại phải connect db lần nữa
