@@ -16,3 +16,8 @@
 - Bài của section 12 sẽ lưu ở database `shop`, còn của bài này sẽ lưu là `udemy_section-13_shop`
 - Video hướng dẫn cách tạo cấu trúc `schema` cho các collection trong mongodb
 
+### 212. Saving Data Through Mongoose
+
+- Video hướng dẫn sử dụng `product` model đã tạo ở video trước
+- Implement vào admin controller
+  - Một số function sẽ có sẵn từ moogose như `save()`
