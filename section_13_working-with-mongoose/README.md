@@ -39,3 +39,6 @@
   - Công việc sẽ theo step là đầu tiên dùng `Product.findById(productId)` để tìm được product muốn sửa, khi nhận được `product` trả về object này ngoài các dữ liệu về product như title,imageUrl,description,... sẽ có đầy đủ các function cung cấp bởi moongose để sử dụng. 
   - Bước thứ 2 sau khi lấy thông tin ta sẽ sửa các thuộc tính title,imageUrl,... rồi chạy lệnh `.save()` để lưu lại thông tin product đó
 
+### 216. Deleting Products
+
+- Sử dụng `.findByIdAndRemove` để remove 1 document trong collection
