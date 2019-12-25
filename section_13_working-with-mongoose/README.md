@@ -42,3 +42,9 @@
 ### 216. Deleting Products
 
 - Sử dụng `.findByIdAndRemove` để remove 1 document trong collection
+
+### 217. Adding and Using a User Model
+
+- Hướng dẫn tạo userModel 
+- Ta có thể lấy các type có thể sử dụng trong `type` trong Schema bằng cách dùng `Schema.Types.ObjectId` 
+  - Demo: https://i.imgur.com/7sQq7T3.jpg
