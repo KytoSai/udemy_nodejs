@@ -31,3 +31,11 @@
 ### 214. Fetching a Single Product
 
 - Hàm ` Product.findById(prodId)` khác với mongodb driver là phải convert prodId sang ObjectId thì moongose tự convert sang dùm luôn
+
+### 215. Updating Products 
+
+- Video hướng dẫn cách update thông tin product.
+- Các bước update thông tin product
+  - Công việc sẽ theo step là đầu tiên dùng `Product.findById(productId)` để tìm được product muốn sửa, khi nhận được `product` trả về object này ngoài các dữ liệu về product như title,imageUrl,description,... sẽ có đầy đủ các function cung cấp bởi moongose để sử dụng. 
+  - Bước thứ 2 sau khi lấy thông tin ta sẽ sửa các thuộc tính title,imageUrl,... rồi chạy lệnh `.save()` để lưu lại thông tin product đó
+
