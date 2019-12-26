@@ -84,3 +84,7 @@
     ```
     - Dấu `-` trước `_id` là đại diện cho không lấy field đó
 
+### 220. Working on the Shopping Cart
+
+- Video hướng dẫn cách add sản phẩm vào cart
+- Để có thể thêm method vào schema ta dùng `userSchema.methods.addToCart`
