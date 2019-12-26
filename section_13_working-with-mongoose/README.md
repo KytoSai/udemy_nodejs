@@ -48,3 +48,16 @@
 - Hướng dẫn tạo userModel 
 - Ta có thể lấy các type có thể sử dụng trong `type` trong Schema bằng cách dùng `Schema.Types.ObjectId` 
   - Demo: https://i.imgur.com/7sQq7T3.jpg
+
+### 218. Using Relations in Mongoose
+
+- Cách tạo quan hệ như db mysql 
+- Ở các phần khai báo `schema` các id cần trỏ liên kết tới đối tượng khác cần khai báo thêm thuộc tính `ref` dẫn tới model của đối tượng cần liên kết
+  - VD: liên kết sản phẩm với 1 userId nào đó thì ta cấu hình
+    ```javascript
+      userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+    ```
