@@ -88,3 +88,9 @@
 
 - Video hướng dẫn cách add sản phẩm vào cart
 - Để có thể thêm method vào schema ta dùng `userSchema.methods.addToCart`
+
+### 221. Loading the Cart
+
+- `.populate` sẽ không return 1 promise, vì vậy để nhận được return là 1 promise ta phải bổ sung thêm method `.execPopulate()` để lấy được promise
+- Khi đưa thêm 1 item product vào `user.cart.items` thì mỗi item product trong cart items này cũng sẽ có thêm _id riêng
+  - DEMO: https://i.imgur.com/DZCMsw3.jpg 

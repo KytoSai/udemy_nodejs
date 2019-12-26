@@ -56,6 +56,8 @@ userSchema.methods.addToCart = function(product) {
   return this.save();
 }
 
+
+
 module.exports = mongoose.model('User',userSchema);
 
 
