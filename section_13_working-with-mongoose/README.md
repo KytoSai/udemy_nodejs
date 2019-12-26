@@ -122,4 +122,4 @@
     ```
     - Theo như giải thích thì nếu chỉ dừng ở `i.productId` thì trong object này sẽ chứa hằng hà sa số mấy cái metadata linh tinh không cần thiết phải lưu vào db. Nếu ta thêm `._doc` thì thuần túy chỉ là lấy những thông tin data của document đó thôi. Như của product thì sẽ là `title, price, userId,...`
 
-
+### 225. Clearing the Cart After Storing an Order
