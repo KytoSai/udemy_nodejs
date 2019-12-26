@@ -99,4 +99,7 @@
 
 ### 222. Deleting Cart Items
 
+### 223. Creating & Getting Orders
 
+- Hướng dẫn khởi tạo model order để quản lý đơn hàng
+- Khi dùng `ref` cho thuộc tính 
