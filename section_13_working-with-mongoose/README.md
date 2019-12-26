@@ -61,3 +61,26 @@
         required: true,
       },
     ```
+
+### 219. One Important Thing About Fetching Relations
+
+- Video hướng dẫn cách lấy những sản phẩm chỉ của user mình cần thôi
+- VD: fetch tất cả product trong admin thì ta thêm `.populate('userId')`
+  ```javascript
+    Product
+      .find()
+      .populate('userId')
+      .then(...)
+  ```
+- Khi sử dụng cái populate này thì data nhận được sẽ có full dữ liệu về userId mà mình trỏ tới
+- Ta có thể sử dụng `.select('field_1 field_2')` với `field_1` , `field_2` là các field cần lấy trong các document trả về
+  - VD: chỉ muốn lấy title price không lấy id của sản phẩm, với thông tin user ta chỉ cần username thì là
+    ```javascript
+      Product
+        .find()
+        .select('title price -_id')
+        .populate('userId', 'name')
+        .then(products => {
+    ```
+    - Dấu `-` trước `_id` là đại diện cho không lấy field đó
+

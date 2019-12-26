@@ -84,7 +84,11 @@ exports.postEditProduct = (req, res, next) => {
 exports.getProducts = (req, res, next) => {
   Product
     .find()
+    // .select('title price -_id') // Chỉ lấy các field title price không lấy field _id của sản phẩm
+    // .populate('userId', 'name') // Chỉ lấy field name của user có id là userId
     .then(products => {
+      console.log(products);
+
       res.render('admin/products', {
         prods: products,
         pageTitle: 'Admin Products',
