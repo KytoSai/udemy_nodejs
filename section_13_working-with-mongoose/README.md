@@ -94,3 +94,9 @@
 - `.populate` sẽ không return 1 promise, vì vậy để nhận được return là 1 promise ta phải bổ sung thêm method `.execPopulate()` để lấy được promise
 - Khi đưa thêm 1 item product vào `user.cart.items` thì mỗi item product trong cart items này cũng sẽ có thêm _id riêng
   - DEMO: https://i.imgur.com/DZCMsw3.jpg 
+- Dữ liệu product khi được map từ `productId` trong cart items sẽ nằm trong fied `productId` 
+  - DEMO: https://i.imgur.com/VcqG2k5.jpg 
+
+### 222. Deleting Cart Items
+
+
