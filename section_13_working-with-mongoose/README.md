@@ -102,4 +102,24 @@
 ### 223. Creating & Getting Orders
 
 - Hướng dẫn khởi tạo model order để quản lý đơn hàng
-- Khi dùng `ref` cho thuộc tính 
+
+### 224. Storing All Order Related Data
+
+- Hướng dẫn cách map data của product và copy data này lưu lại vô danh sách product của order
+- Mongoose hỗ trợ ta thuộc tính `._doc` (viết tắt của document) để chỉ lấy thông tin metadata của dữ liệu ta cần ??? Bỏ nó đi thì vẫn lưu data bình thường, méo hiểu để làm gì  
+  - Khi console.log thuộc tính này ta sẽ không thấy được gì  
+  - VD: lưu data của product vào order
+    ```javascript
+      // Format lại cấu trúc product cho order
+      const products = user.cart.items.map(i => {
+        return {
+          quantity: i.quantity,
+          product: {
+            ...i.productId._doc, // ._doc để làm méo gì ???
+          },
+        }
+      });
+    ```
+    - Theo như giải thích thì nếu chỉ dừng ở `i.productId` thì trong object này sẽ chứa hằng hà sa số mấy cái metadata linh tinh không cần thiết phải lưu vào db. Nếu ta thêm `._doc` thì thuần túy chỉ là lấy những thông tin data của document đó thôi. Như của product thì sẽ là `title, price, userId,...`
+
+
