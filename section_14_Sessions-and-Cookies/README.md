@@ -13,3 +13,6 @@
     ```
 - Để lấy thông tin cookie thì ta sử dụng lệnh `req.get('Cookie')`
   - Thật ra .get ở đây là get cái đống trên request header, truyền đúng key là lấy được - https://i.imgur.com/aFSWQXC.jpg 
+
+### 235. Manipulating Cookies
+
