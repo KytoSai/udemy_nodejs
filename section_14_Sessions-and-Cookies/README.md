@@ -26,3 +26,7 @@
   ```javascript
     res.setHeader("Set-Cookie", "loggedIn=true; Secure");
   ```
+
+### 238. Initializing the Session Middleware
+
+- Cần sử dụng package ngoài để sử dụng session tên là `express-session`
