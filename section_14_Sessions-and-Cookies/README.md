@@ -16,3 +16,13 @@
 
 ### 235. Manipulating Cookies
 
+### 236. Configuring Cookies
+
+- Ta có thể set thời gian tồn tại của cookie bằng cách thêm `Max-Age=10`
+  ```javascript
+    res.setHeader("Set-Cookie", "loggedIn=true; Max-Age=10");
+  ```
+- Ta có thể set yêu cầu cookie chỉ có thể sử dụng với phương thức `https`
+  ```javascript
+    res.setHeader("Set-Cookie", "loggedIn=true; Secure");
+  ```
