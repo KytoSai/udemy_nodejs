@@ -56,3 +56,8 @@
       res.locals.isAuthenticated = req.session.isLoggedIn;
       res.locals.csrfToken = req.csrfToken();
     ```
+
+### 263. Providing User Feedback 
+
+- Viết show message cho user biết tình trạng kết quả sau khi xử lý vấn đề gì đó
+- Sử dụng thư viện - https://github.com/jaredhanson/connect-flash 
