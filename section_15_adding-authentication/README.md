@@ -19,3 +19,18 @@
 
 - Thêm tính năng đăng nhập
 - Hướng dẫn cách dùng bcryptjs để so sánh password hiện tại với password trong db
+
+### 257. Working on Route Protection
+### 258. Using Middleware to Protect Routes
+
+- Ở các video trước đã làm việc xác thực user để ẩn hiện menu, nhưng các router vẫn có thể gõ trực tiếp để truy cập, vì vậy video này hướng dẫn cách thêm 1 middleware chạy trước mỗi middleware cần bảo bật thông tin
+- VD: Thêm check auth cho router thêm sản phẩm của admin 
+  - Cũ
+    ```javascript
+      router.get('/add-product', adminController.getAddProduct);
+    ```
+  - Mới
+    ```javascript
+      router.get('/add-product', isAuth, adminController.getAddProduct);
+    ```
+  - => Nghĩa là ta có thể chèn bao nhiêu middleware cũng được sau khi cấu hình đường dẫn router ở tham số đầu tiên của `.get, .post,...`
