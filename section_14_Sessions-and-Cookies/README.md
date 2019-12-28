@@ -33,9 +33,23 @@
 
 ### 239. Using the Session Middleware
 
+
 - Tạm có thể hiểu là session cũng chỉ là 1 cookie nhưng được mã hóa và chỉ có thể xử lý ở server side
 
 ### 240. Using MongoDB to Store Sessions
 
 - Vì mặc định không dùng thư viện ngoài thì session sẽ lưu vào RAM, đối với lượng truy cập lớn thì đây không phải việc nên làm, vì vậy cần vào trang https://github.com/expressjs/session để tim 1 thư viện giúp hỗ trợ lưu session vào đâu đó (store, db,...)
   - Trong video sẽ hướng dẫn dùng - https://www.npmjs.com/package/connect-mongodb-session 
+
+### 242. Deleting a Cookie
+
+- Sử dụng hàm `.destroy(callback)` để hủy session hiện tại
+  ```javascript
+    req.session.destroy((err) => {
+      console.log(err)
+      res.redirect('/')
+    });
+  ```
+- Khi destroy session xong thì ta check ở trình duyệt sẽ vẫn thấy cookie `connect_id` vẫn tồn tại nhưng check trong db thì đã xóa mất, đừng lo lắng vì sẽ không ảnh hưởng gì cả vì cookie này không có match đến session nào trong db
+- Có một vấn đề thắc mắc là theo vidoe thì không có set cmg ở expire nhưng trong video cái cookie của session vẫn hiện expire nhưng trong thực tế khi code hiện tại thì cột `Expires/Max-Age` nó lại ghi chữ `Session` méo hiểu là có ý nghĩa cmg
+  - Ngoài ra ổng có bảo tắt browser đi thì nó sẽ xóa cookie này đi, nhưng tắt bật sml vẫn còn y nguyên ???
