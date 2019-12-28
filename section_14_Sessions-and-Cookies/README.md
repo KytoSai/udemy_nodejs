@@ -2,6 +2,8 @@
 
 ## SECTION 14 - Sessions & Cookies
 
+- Bài này sử dụng db `udemy_section13_shop` chung với SECTION trước
+
 ### 233. Adding the Request Driven Login Solution
 
 ### 234. Setting a Cookie
