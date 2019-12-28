@@ -9,14 +9,13 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-// Chuỗi kết kết mongodb
-const MONGODB_URI = 'mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/udemy_section13_shop?retryWrites=true&w=majority'
+const MONGODB_URI =
+  'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop';
 
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
-  collection: 'sessions',
-
+  collection: 'sessions'
 });
 
 app.set('view engine', 'ejs');
@@ -28,23 +27,20 @@ const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  secret: 'section14', // 1 mã bí mật để setup session
-
-  /*
-    - DOC: https://www.npmjs.com/package/express-session#resave 
-  */
-  resave: false, 
-
-  /*
-    - DOC: https://www.npmjs.com/package/express-session#saveuninitialized
-  */
-  saveUninitialized: false,
-  store: store,
-}))
+app.use(
+  session({
+    secret: 'my secret',
+    resave: false,
+    saveUninitialized: false,
+    store: store
+  })
+);
 
 app.use((req, res, next) => {
-  User.findById('5e039dc3f4553038d07292c6')
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then(user => {
       req.user = user;
       next();
