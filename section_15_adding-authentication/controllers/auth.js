@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 const User = require('../models/user');
 
 exports.getLogin = (req, res, next) => {
@@ -17,7 +19,7 @@ exports.getSignup = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  User.findById('5e0764f95258a239209df6a9')
+  User.findById('5e0771a620bfe92bd82fba3d')
     .then(user => {
       req.session.isLoggedIn = true;
       req.session.user = user;
@@ -33,14 +35,19 @@ exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
-  User.findOne({ email: email })
-    .then(userDoc => {
+  User.findOne({ email: email }) // Tìm xem với email này user đã tồn tại chưa
+    .then(userDoc => { 
       if (userDoc) {
-        return res.redirect('/signup');
+        console.log('[Signup] Email exists !')
+        return res.redirect('/signup'); // Tồn tại rồi thì redirect lại signup lần nữa
       }
+
+      return bcrypt.hash(password, 12);
+    })
+    .then(hashedPassword => {
       const user = new User({
         email: email,
-        password: password,
+        password: hashedPassword,
         cart: { items: [] }
       });
       return user.save();
