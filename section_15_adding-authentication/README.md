@@ -10,3 +10,7 @@
 - Bài này ta sẽ sử dụng thư viện `bcryptjs` để mã hóa password lưu vào db - https://github.com/dcodeIO/bcrypt.js 
   - Việc bcryptjs encrypt password sẽ là 1 hành vi async vì vậy nó sẽ trả về promise
 - Ở bài trước cách xử lý validation khi trùng Email của video hơi ngu vì nó vẫn run cái đoạn ghi nhận thông tin user signup mới vào dẫn đến báo lỗi tào lao - https://i.imgur.com/B5qRYLI.jpg
+
+### 255. Adding a Tiny Code Improvement
+
+- Fix cái vụ nhập trùng email báo lỗi cho chuẩn kia

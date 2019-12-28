@@ -35,25 +35,24 @@ exports.postSignup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
-  User.findOne({ email: email }) // Tìm xem với email này user đã tồn tại chưa
-    .then(userDoc => { 
+  User.findOne({ email: email })
+    .then(userDoc => {
       if (userDoc) {
-        console.log('[Signup] Email exists !')
-        return res.redirect('/signup'); // Tồn tại rồi thì redirect lại signup lần nữa
+        return res.redirect('/signup');
       }
-
-      return bcrypt.hash(password, 12);
-    })
-    .then(hashedPassword => {
-      const user = new User({
-        email: email,
-        password: hashedPassword,
-        cart: { items: [] }
-      });
-      return user.save();
-    })
-    .then(result => {
-      res.redirect('/login');
+      return bcrypt
+        .hash(password, 12)
+        .then(hashedPassword => {
+          const user = new User({
+            email: email,
+            password: hashedPassword,
+            cart: { items: [] }
+          });
+          return user.save();
+        })
+        .then(result => {
+          res.redirect('/login');
+        });
     })
     .catch(err => {
       console.log(err);
