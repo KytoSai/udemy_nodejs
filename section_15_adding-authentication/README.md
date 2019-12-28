@@ -61,3 +61,10 @@
 
 - Viết show message cho user biết tình trạng kết quả sau khi xử lý vấn đề gì đó
 - Sử dụng thư viện - https://github.com/jaredhanson/connect-flash 
+
+### 264. Optional: Styling Error Messages
+### 265. Finishing the Flash Messages 
+
+- Để tạo message dạng flash ta dùng lệnh `req.flash('error', 'Invalid email or password.');`
+- Kết get messaage đã tạo ta dùng `req.flash('error')`
+  - Lưu ý là kết quả trả về sẽ là 1 mảng, nếu không có message thì sẽ là 1 mảng rỗng
