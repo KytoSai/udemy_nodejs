@@ -14,3 +14,8 @@
 ### 255. Adding a Tiny Code Improvement
 
 - Fix cái vụ nhập trùng email báo lỗi cho chuẩn kia
+
+### 256. Adding the Signin Functionality
+
+- Thêm tính năng đăng nhập
+- Hướng dẫn cách dùng bcryptjs để so sánh password hiện tại với password trong db
