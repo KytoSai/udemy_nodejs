@@ -75,3 +75,20 @@
         userId: req.user // Chỗ này để `req.user` hoặc `req.user._id` đều chạy tốt
       });
     ```
+
+### 245. Two Tiny Improvements
+
+- Bổ sung callback khi save session để tránh bug khi chưa xử lý xong các action với session đã bị thực hiện hành vi khác gây sai dữ liệu.
+  - VD: như khi đăng nhập ta lưu thông tin user vào session nhưng chẳng may ta cho lệnh `res.redirect('/')` nó thực hiện sau lệnh `req.session.user = user` thì khi database đang bị quá tải và lưu chậm khi chuyển đến trang `/cc` lúc đó ta lôi session user ra sử dụng có khi dữ liệu session user lúc đó lại chưa có vì lưu session cũng là bất đồng bộ
+    - Cũ
+      ```javascript
+        req.session.user = user;
+        res.redirect('/cc');
+      ```
+    - Fix
+      ```javascript
+        req.session.user = user;
+        req.session.save(() => { // Đảm bảo việc session đã xử lý xong mới đi làm việc khác
+          res.redirect('/cc');
+        });
+      ```
