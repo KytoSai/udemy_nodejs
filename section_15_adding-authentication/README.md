@@ -34,3 +34,25 @@
       router.get('/add-product', isAuth, adminController.getAddProduct);
     ```
   - => Nghĩa là ta có thể chèn bao nhiêu middleware cũng được sau khi cấu hình đường dẫn router ở tham số đầu tiên của `.get, .post,...`
+
+### 259. Understanding CSRF Attacks
+### 260. Using a CSRF Token
+### 261. Adding CSRF Protection 
+
+- Giải thích về CSRF - https://viblo.asia/p/ky-thuat-tan-cong-csrf-va-cach-phong-chong-amoG84bOGz8P 
+- Sử dụng thư viện `csurf` để chống tấn công CSRF - https://github.com/expressjs/csurf 
+  - `csurf` sẽ bắt tất cả các form với phương thức không cho phép đều phải được truyền 1 field với thông tin `csrfToken` để xác thực
+  - Tên field đó default là `_csrf`
+    - VD: truyền lên cho form logout như sau
+      ```html
+        <form action="/logout" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <button type="submit">Logout</button>
+        </form>
+      ```
+- Expressjs có hỗ trợ 1 property giúp truyền biến vào view sẽ được render đó là `.locals`
+  - VD:
+    ```javascript
+      res.locals.isAuthenticated = req.session.isLoggedIn;
+      res.locals.csrfToken = req.csrfToken();
+    ```
