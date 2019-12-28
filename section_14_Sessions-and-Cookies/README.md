@@ -30,3 +30,12 @@
 ### 238. Initializing the Session Middleware
 
 - Cần sử dụng package ngoài để sử dụng session tên là `express-session`
+
+### 239. Using the Session Middleware
+
+- Tạm có thể hiểu là session cũng chỉ là 1 cookie nhưng được mã hóa và chỉ có thể xử lý ở server side
+
+### 240. Using MongoDB to Store Sessions
+
+- Vì mặc định không dùng thư viện ngoài thì session sẽ lưu vào RAM, đối với lượng truy cập lớn thì đây không phải việc nên làm, vì vậy cần vào trang https://github.com/expressjs/session để tim 1 thư viện giúp hỗ trợ lưu session vào đâu đó (store, db,...)
+  - Trong video sẽ hướng dẫn dùng - https://www.npmjs.com/package/connect-mongodb-session 
