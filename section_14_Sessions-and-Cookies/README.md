@@ -53,3 +53,25 @@
 - Khi destroy session xong thì ta check ở trình duyệt sẽ vẫn thấy cookie `connect_id` vẫn tồn tại nhưng check trong db thì đã xóa mất, đừng lo lắng vì sẽ không ảnh hưởng gì cả vì cookie này không có match đến session nào trong db
 - Có một vấn đề thắc mắc là theo vidoe thì không có set cmg ở expire nhưng trong video cái cookie của session vẫn hiện expire nhưng trong thực tế khi code hiện tại thì cột `Expires/Max-Age` nó lại ghi chữ `Session` méo hiểu là có ý nghĩa cmg
   - Ngoài ra ổng có bảo tắt browser đi thì nó sẽ xóa cookie này đi, nhưng tắt bật sml vẫn còn y nguyên ???
+
+### 244. Making "Add to Cart" Work Again
+
+- Đối với trường hợp khai báo dạng `ref` như sau
+  ```javascript
+    userId: {
+      type: Schema.Types.ObjectId, // ở đây ghi là objectId
+      ref: 'User',
+      required: true
+    }
+  ```
+- Ta có thể nhét nguyên cái object của `user` vào cái field `userId` luôn thay vì chỉ là `user._id` thôi
+  - VD: ở trong function `postAddProduct` ta nhét nguyên cái req.user vào nó vẫn chạy ầm ầm
+    ```javascript
+      const product = new Product({
+        title: title,
+        price: price,
+        description: description,
+        imageUrl: imageUrl,
+        userId: req.user // Chỗ này để `req.user` hoặc `req.user._id` đều chạy tốt
+      });
+    ```
