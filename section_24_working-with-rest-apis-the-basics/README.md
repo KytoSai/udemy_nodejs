@@ -45,3 +45,7 @@
     });
   ```
 
+### 365. Sending POST Requests 
+
+- Để có thể gửi lên server-side của các bài trước nhận với `fetch()` ta phải format content-type của header lại thành `application/json` - https://i.imgur.com/3JjdRWo.jpg 
+- Nếu ta dùng `fetch()` để lấy data và không setting header method là gì thì khi gửi lên mặc định nó sẽ là `OPTIONS`
