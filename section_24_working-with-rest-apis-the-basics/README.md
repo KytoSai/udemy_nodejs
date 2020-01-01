@@ -33,6 +33,15 @@
   ```
     - Thì gửi lên `postman` phải chọn tab `raw` và gửi content là `json` - https://i.imgur.com/igql8Pk.jpg 
 
+### 364. REST APIs, Clients & CORS Errors
 
-
+- Để có thể tránh lỗi `CORS` khi gọi tới RESTs API thì từ server cung cấp API ta cần set 1 số thông tin header như sau
+  ```javascript
+    app.use((res, req, next) => {
+      res.setHeader('Access-Control-Allow-Orgigin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      next();
+    });
+  ```
 
