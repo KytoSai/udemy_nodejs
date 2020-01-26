@@ -15,3 +15,11 @@
 ### 373. Adding a Create Post Endpoint 
 
 - Giả việc send 1 post từ FE tới BE
+
+### 374. Adding Server Side Validation 
+
+- (chưa làm theo video)
+- Sử dụng express-validator để validate input của api 
+
+
+
