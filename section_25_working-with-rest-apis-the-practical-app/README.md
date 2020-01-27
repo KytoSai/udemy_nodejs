@@ -76,9 +76,8 @@
 - [Alert] If you insert new document to collection in db. If that collection not existed yet, it will auto generate new collection with name of model you exported with the suffix `s`
   - Exam: 
     ```javascript
-      // User model exported
-      mongoose.model('User', userSchema);
-      // Collection auto generate with name `users`
+      mongoose.model('User', userSchema); // Collection auto generate with name `users`
+      mongoose.model('NhuConC', userSchema); // Collection auto generate with name `nhuconcs`
     ```
 
 
