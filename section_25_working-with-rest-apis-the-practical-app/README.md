@@ -30,3 +30,31 @@
 - Trong cấu hình `schema` của model post, ta thêm option `{ timestamps: true }` nó giúp cho tự động tạo `createdAt` và `updatedAt` mỗi khi có sự thay đổi data
   - Quote `4:06` - `when a new version is added to the database, when a new object is added to the database. So we automatically get a createdAt and updatedAt timestamp out of the box then` 
 
+### 376. Storing Posts in the Database
+### 377. Static Images & Error Handling
+### 378. Fetching a Single Post
+### 379. Image Names & Windows
+### 380. Uploading Images
+### 381. Updating Posts 
+### 382. Deleting Posts 
+### 383. Adding Pagination 
+### 384. Adding a User Model 
+### 385. Adding User Signup Validation 
+### 386. Signing Users Up 
+
+- Chưa coi video
+
+### 387. How Does Authentication Work? 
+
+- The token's mechanism used to authenticate the website - https://i.imgur.com/On7vSat.jpg 
+- What will a token include ? - https://i.imgur.com/EJ7U4Ky.jpg 
+  - Data
+  - Signature (can be verified by server via secret key)
+- Jwt github - https://github.com/auth0/node-jsonwebtoken
+
+### 388. Starting with User Login
+
+- Initialize the login feature at FE and BE with router `auth/login`
+
+
+
