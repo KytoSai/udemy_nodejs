@@ -36,7 +36,16 @@
 ### 376. Storing Posts in the Database
 ### 377. Static Images & Error Handling
 ### 378. Fetching a Single Post
+
+- Have not seen the video
+
 ### 379. Image Names & Windows
+
+- [ALERT] Replace code in video with the notes chapter to void CORS errors on Windows (Windows users only)
+  - On Windows, the file name that includes a date string is not really supported and will lead to some strange CORS errors.
+  
+- => I follow but it doesn't work ?????? Why ??????
+
 ### 380. Uploading Images
 ### 381. Updating Posts 
 ### 382. Deleting Posts 
@@ -45,7 +54,7 @@
 ### 385. Adding User Signup Validation 
 ### 386. Signing Users Up 
 
-- Chưa coi video
+- Have not seen the video
 
 ### 387. How Does Authentication Work? 
 
@@ -96,3 +105,7 @@
     ```
     - `Why bearer ?` => Well this is just a convention (quy ước) to kind of identify that the type of token you have and the bearer token is simply an authentication token, you typically use bearer for jwt. It's not a must, you could actually work without that but it's a common convention and therefore I want to keep that convention.
 - Use method `jwt.verify(token, 'somesupersecretsecret');` to validate token 
+
+### 391. Adding Auth Middleware to All Routes 
+
+### 392. Connecting Posts & Users

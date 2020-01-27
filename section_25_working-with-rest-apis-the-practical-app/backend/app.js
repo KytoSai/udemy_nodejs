@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const uuidv4 = require('uuid/v4') // Upload file for window user only void CRORS Error
 
 const feedRoutes = require('./routes/feed');
 const authRoutes = require('./routes/auth');
@@ -11,11 +12,11 @@ const authRoutes = require('./routes/auth');
 const app = express();
 
 const fileStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'images');
+  destination: function(req, file, cb) {
+      cb(null, 'images');
   },
-  filename: (req, file, cb) => {
-    cb(null, new Date().toISOString() + '-' + file.originalname);
+  filename: function(req, file, cb) {
+      cb(null, uuidv4())
   }
 });
 
