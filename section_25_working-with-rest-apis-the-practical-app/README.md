@@ -72,7 +72,7 @@
         { expiresIn: '1h' }
       );
     ```
-    
+
 - Question: How to prevent other people stolen my token if i set my token exists large one month ?
 
 - [Alert] If you insert new document to collection in db. If that collection not existed yet, it will auto generate new collection with name of model you exported with the suffix `s`
@@ -82,4 +82,17 @@
       mongoose.model('NhuConC', userSchema); // Collection auto generate with name `nhuconcs`
     ```
 
+### 390. Using & Validating the Token
 
+- Instructions for creating a middleware to authentication jwt
+- We will use the header to send the token to the BE
+  - Exam:
+    ```javascript
+      fetch('http://localhost:8080/feed/posts?page=' + page, {
+        headers: {
+          Authorization: 'Bearer ' + this.props.token
+        }
+      })
+    ```
+    - `Why bearer ?` => Well this is just a convention (quy ước) to kind of identify that the type of token you have and the bearer token is simply an authentication token, you typically use bearer for jwt. It's not a must, you could actually work without that but it's a common convention and therefore I want to keep that convention.
+- Use method `jwt.verify(token, 'somesupersecretsecret');` to validate token 
