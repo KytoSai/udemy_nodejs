@@ -4,6 +4,9 @@
 
 - Url config `mongodb+srv://user01:123123123@cluster0-1cukr.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true`
 
+- User test
+  - test@gmail.com - 123456
+
 ## SECTION 25 - Working with REST APIs - The Practical Application
 
 ### 369. REST APIs & The Rest Of The Course 
@@ -56,5 +59,26 @@
 
 - Initialize the login feature at FE and BE with router `auth/login`
 
+### 389. Logging In & Creating JSON Web Tokens (JWTs)
+
+- Use method `jwt.sign` (signature) to create a new token
+  - Exam:
+    ```javascript
+       const token = jwt.sign({ // Data store in token
+          email: loadedUser.email,
+          userId: loadedUser._id.toString()
+        },
+        'somesupersecretsecret', // Secret key
+        { expiresIn: '1h' }
+      );
+    ```
+- Question: How to prevent other people stolen my token if i set my token exists large one month ?
+- If collection of mongodb not exists. And you insert new document, it will auto generate new collection with name of model you exported with the suffix `s`
+  - Exam: 
+    ```javascript
+      // User model exported
+      mongoose.model('User', userSchema);
+      // Collection auto generate with name `users`
+    ```
 
 
