@@ -43,7 +43,7 @@
 
 - [ALERT] Replace code in video with the notes chapter to void CORS errors on Windows (Windows users only)
   - On Windows, the file name that includes a date string is not really supported and will lead to some strange CORS errors.
-  
+
 - => I follow but it doesn't work ?????? Why ??????
 
 ### 380. Uploading Images
@@ -109,3 +109,11 @@
 ### 391. Adding Auth Middleware to All Routes 
 
 ### 392. Connecting Posts & Users
+
+### 393. Adding Authorization Checks 
+
+- Adding check creator (userId) of post with current userId in token to allow control post (update/delete...)
+
+### 394. Clearing Post-User Relations 
+
+- Now talking about deleting, there's one more thing we should do in case we do succeed. We should clear the relation of posts and users. 
