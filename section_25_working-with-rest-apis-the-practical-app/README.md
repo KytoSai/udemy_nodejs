@@ -72,7 +72,9 @@
         { expiresIn: '1h' }
       );
     ```
+    
 - Question: How to prevent other people stolen my token if i set my token exists large one month ?
+
 - [Alert] If you insert new document to collection in db. If that collection not existed yet, it will auto generate new collection with name of model you exported with the suffix `s`
   - Exam: 
     ```javascript
